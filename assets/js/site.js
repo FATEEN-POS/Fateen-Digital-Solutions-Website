@@ -13,3 +13,6 @@ b.querySelector('.ax').addEventListener('click',function(){b.hidden=true;try{ses
 (function(){var d=document.getElementById('demo');if(!d)return;var n=d.querySelector('.net'),c=d.querySelector('.cnt'),b=d.querySelector('.dbtn'),v=48,off=false;
 b.addEventListener('click',function(){off=!off;d.classList.toggle('cut',off);n.classList.toggle('off',off);n.classList.toggle('on',!off);n.textContent=off?d.dataset.off:d.dataset.on;b.textContent=off?d.dataset.b2:d.dataset.b1});
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(function(){v+=1;c.textContent=v},2600)})();
+
+(function(){document.querySelectorAll('[data-copy]').forEach(function(b){var t=b.textContent;b.addEventListener('click',function(){var u=b.getAttribute('data-copy');function ok(){b.textContent=b.getAttribute('data-done');setTimeout(function(){b.textContent=t},1800)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok,function(){})}else{var i=document.createElement('input');i.value=u;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}i.remove()}})})})();
