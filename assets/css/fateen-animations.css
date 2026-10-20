@@ -1,0 +1,22 @@
+/* Fateen motion kit v1 - copy-paste classes for web and POS
+   Easing: cubic-bezier(.2,.8,.2,1) for entrances, cubic-bezier(.3,1.6,.5,1) for pops. Durations 0.4-0.7s. Only transform + opacity. */
+:root{--fd-signal:#FF4F1F;--fd-ease-out:cubic-bezier(.2,.8,.2,1);--fd-ease-pop:cubic-bezier(.3,1.6,.5,1)}
+/* element fades and slides up when it appears (add .fd-delay-1..6 for stagger) */
+.fd-reveal-up{opacity:0;transform:translateY(24px);animation:fd-up .6s var(--fd-ease-out) forwards}
+@keyframes fd-up{to{opacity:1;transform:none}}
+.fd-delay-1{animation-delay:.1s}.fd-delay-2{animation-delay:.2s}.fd-delay-3{animation-delay:.3s}.fd-delay-4{animation-delay:.4s}.fd-delay-5{animation-delay:.5s}.fd-delay-6{animation-delay:.6s}
+/* the brand dot: put on any orange circle (status dot, bullet, "online/offline" light) */
+.fd-pulse-dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:var(--fd-signal);animation:fd-beat 1.4s ease-in-out infinite}
+@keyframes fd-beat{0%,100%{transform:scale(1)}30%{transform:scale(1.3)}}
+/* ripple ring around the dot: wrap dot in .fd-ring */
+.fd-ring{position:relative;display:inline-block}
+.fd-ring::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--fd-signal);animation:fd-ripple 1.4s ease-out infinite}
+@keyframes fd-ripple{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(4)}}
+/* pop in (buttons, toasts, "payment done") */
+.fd-pop{animation:fd-pop .5s var(--fd-ease-pop) both}
+@keyframes fd-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+/* soft attention pulse for a call-to-action button */
+.fd-cta-pulse{animation:fd-cta 2.4s ease-in-out infinite}
+@keyframes fd-cta{0%,100%{transform:none}50%{transform:scale(1.035)}}
+/* number count-up helper: see fateen-countup.js */
+@media (prefers-reduced-motion:reduce){.fd-reveal-up,.fd-pop{animation:none;opacity:1;transform:none}.fd-pulse-dot,.fd-cta-pulse{animation:none}.fd-ring::after{display:none}}

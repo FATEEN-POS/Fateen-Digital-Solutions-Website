@@ -1,0 +1,2 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" role="img" aria-label="loading"><style>.c{transform-box:fill-box;transform-origin:center;animation:b 1s ease-in-out infinite}@keyframes b{0%,80%,100%{transform:scale(.55);opacity:.5}40%{transform:scale(1);opacity:1}}</style>
+<circle class="c" cx="20" cy="20" r="9" fill="#FF4F1F" style="animation-delay:0s"/><circle class="c" cx="60" cy="20" r="9" fill="#FF4F1F" style="animation-delay:.18s"/><circle class="c" cx="100" cy="20" r="9" fill="#FF4F1F" style="animation-delay:.36s"/></svg>

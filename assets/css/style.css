@@ -437,3 +437,104 @@ button.btn{font-family:inherit;cursor:pointer;border:1px solid rgba(242,239,232,
 .prs .card{background:#FAF8F3!important;border-color:#DDD7C9!important;color:#0E0E0E!important}
 .prs .card h3{color:#0E0E0E!important}.prs .card p{color:#5C584E!important}
 @media (max-width:720px){.tfeats{grid-template-columns:1fr 1fr;gap:8px}.tf{padding:9px 10px;gap:8px;flex-direction:column;align-items:flex-start}.tf .ic-box{width:34px;height:34px}.tf b{font-size:13.5px}.tf small{font-size:11.5px}}
+
+/* ===== Style v2: ink / cream / signal rhythm (flat, no gradients) ===== */
+.card{background:var(--surface)!important;background-image:none!important}
+.ic-box{background:rgba(255,79,31,.12)!important;background-image:none!important}
+/* light sections */
+section.lt,section#reviews,.pos{background:#F2EFE8;color:#0E0E0E}
+section.lt h2,section#reviews h2,.pos h2{color:#0E0E0E}
+section.lt .lead,section#reviews .lead,.pos .lead{color:#5C584E}
+section.lt .card,section#reviews .card{background:#FBF9F4!important;border:1.5px solid #0E0E0E!important;color:#0E0E0E!important;box-shadow:none}
+section.lt .card h3,section#reviews .card h3,section#reviews blockquote p{color:#0E0E0E!important}
+section.lt .card p,section.lt .card li,section#reviews .card p{color:#0E0E0E!important}
+section.lt .card:hover,section#reviews .card:hover{border-color:#FF4F1F!important}
+section.lt .ic-box{background:#0E0E0E!important;border-color:#0E0E0E;color:#F2EFE8}
+section.lt .svc .pain{color:#B02F0C!important}
+section.lt .svc .feat .ic{color:#FF4F1F}
+section.lt .svc .names{border-top-color:#DDD7C9;color:#5C584E!important}
+section#reviews cite{color:#B02F0C}
+section.lt .btn.ghost,section#reviews .btn.ghost{color:#0E0E0E;border-color:#0E0E0E}
+/* featured pricing card: full orange */
+#services .grid{grid-template-columns:repeat(3,1fr)}
+#services .card.hl{grid-column:span 2;display:grid;grid-template-columns:1.15fr 1fr;gap:24px;background:#FF4F1F!important;border-color:#FF4F1F!important}
+#services .card.hl:hover{border-color:#0E0E0E!important}
+#services .card.hl .pain,#services .card.hl li,#services .card.hl p,#services .card.hl h3{color:#0E0E0E!important}
+#services .card.hl .feat .ic{color:#0E0E0E}
+#services .card.hl .ic-box{background:#0E0E0E!important;color:#FF4F1F}
+.hl-tag{display:inline-block;background:#0E0E0E;color:#F2EFE8;font-weight:700;font-size:13px;padding:3px 14px;border-radius:999px;margin-bottom:12px}
+.hl-side{display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.hl-steps{list-style:none;padding:0!important;margin:0;display:grid;gap:8px}
+.hl-steps li{background:#0E0E0E;color:#F2EFE8!important;border-radius:14px;padding:10px 14px;font-weight:600;font-size:15px;display:flex;gap:10px;align-items:center}
+.hl-steps li span{flex:none;width:26px;height:26px;border-radius:50%;background:#FF4F1F;color:#0E0E0E;display:grid;place-items:center;font:700 13px "IBM Plex Sans",sans-serif}
+.hl-btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ink{background:#0E0E0E;color:#F2EFE8;border-color:#0E0E0E}
+#services .card.hl .btn.ghost{color:#0E0E0E;border-color:#0E0E0E}
+/* orange CTA band */
+.band{background:#FF4F1F;color:#0E0E0E;border-block:0}
+.band strong{color:#0E0E0E}
+.band .btn{background:#0E0E0E;color:#F2EFE8;border-color:#0E0E0E}
+@media (max-width:900px){#services .grid{grid-template-columns:1fr}#services .card.hl{grid-column:auto;grid-template-columns:1fr}}
+#services .card.svc:last-child:not(.hl){grid-column:1/-1}
+@media (min-width:901px){#services .card.svc:last-child:not(.hl) .feat{grid-template-columns:repeat(3,1fr)}}
+#services .card.hl .hl-steps li{color:#F2EFE8!important}
+#services .card.hl .hl-steps li span{color:#0E0E0E!important}
+section#reviews .card{align-self:start}
+
+/* ===== Fateen motion kit v1 ===== */
+/* Fateen motion kit v1 - copy-paste classes for web and POS
+   Easing: cubic-bezier(.2,.8,.2,1) for entrances, cubic-bezier(.3,1.6,.5,1) for pops. Durations 0.4-0.7s. Only transform + opacity. */
+:root{--fd-signal:#FF4F1F;--fd-ease-out:cubic-bezier(.2,.8,.2,1);--fd-ease-pop:cubic-bezier(.3,1.6,.5,1)}
+/* element fades and slides up when it appears (add .fd-delay-1..6 for stagger) */
+.fd-reveal-up{opacity:0;transform:translateY(24px);animation:fd-up .6s var(--fd-ease-out) forwards}
+@keyframes fd-up{to{opacity:1;transform:none}}
+.fd-delay-1{animation-delay:.1s}.fd-delay-2{animation-delay:.2s}.fd-delay-3{animation-delay:.3s}.fd-delay-4{animation-delay:.4s}.fd-delay-5{animation-delay:.5s}.fd-delay-6{animation-delay:.6s}
+/* the brand dot: put on any orange circle (status dot, bullet, "online/offline" light) */
+.fd-pulse-dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:var(--fd-signal);animation:fd-beat 1.4s ease-in-out infinite}
+@keyframes fd-beat{0%,100%{transform:scale(1)}30%{transform:scale(1.3)}}
+/* ripple ring around the dot: wrap dot in .fd-ring */
+.fd-ring{position:relative;display:inline-block}
+.fd-ring::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--fd-signal);animation:fd-ripple 1.4s ease-out infinite}
+@keyframes fd-ripple{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(4)}}
+/* pop in (buttons, toasts, "payment done") */
+.fd-pop{animation:fd-pop .5s var(--fd-ease-pop) both}
+@keyframes fd-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+/* soft attention pulse for a call-to-action button */
+.fd-cta-pulse{animation:fd-cta 2.4s ease-in-out infinite}
+@keyframes fd-cta{0%,100%{transform:none}50%{transform:scale(1.035)}}
+/* number count-up helper: see fateen-countup.js */
+@media (prefers-reduced-motion:reduce){.fd-reveal-up,.fd-pop{animation:none;opacity:1;transform:none}.fd-pulse-dot,.fd-cta-pulse{animation:none}.fd-ring::after{display:none}}
+
+/* splash (home, once per session) */
+#fd-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#0E0E0E;transition:opacity .5s ease,visibility .5s;cursor:pointer}
+#fd-splash.done{opacity:0;visibility:hidden}
+#fd-splash svg{width:min(460px,70vw);height:auto}
+#fd-splash .fd-slogan{font-weight:700;font-size:clamp(18px,3vw,26px);color:#F2EFE8;opacity:0;animation:fd-sl .6s ease 1.5s forwards}
+#fd-splash .fd-slogan b{color:#FF4F1F}
+@keyframes fd-sl{to{opacity:1}}
+#fd-splash .fd-bar{width:min(240px,50vw);height:3px;background:#262626;border-radius:3px;overflow:hidden}
+#fd-splash .fd-bar i{display:block;height:100%;width:100%;background:#FF4F1F;transform-origin:right center;transform:scaleX(0);animation:fd-bar 2.2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes fd-bar{to{transform:scaleX(1)}}
+.err404 img{width:min(340px,70vw);height:auto;margin-bottom:18px}
+@media (prefers-reduced-motion:reduce){#fd-splash .fd-slogan{animation:none;opacity:1}#fd-splash .fd-bar i{animation:none;transform:none}}
+/* inner pages: closing CTA in signal orange */
+main>section.cta:not(#contact){background:#FF4F1F;color:#0E0E0E}
+main>section.cta:not(#contact) h2,main>section.cta:not(#contact) .lead,main>section.cta:not(#contact) p{color:#0E0E0E}
+main>section.cta:not(#contact) .btn{background:#0E0E0E;color:#F2EFE8;border-color:#0E0E0E}
+/* pricing = ink featured card (POS is the orange one) */
+#services .card.hl.dk{background:#0E0E0E!important;border-color:#0E0E0E!important}
+#services .card.hl.dk h3,#services .card.hl.dk li,#services .card.hl.dk p{color:#F2EFE8!important}
+#services .card.hl.dk .pain{color:#FF4F1F!important}
+#services .card.hl.dk .feat .ic{color:#FF4F1F}
+#services .card.hl.dk .ic-box{background:#FF4F1F!important;color:#0E0E0E}
+#services .card.hl.dk .hl-tag{background:#FF4F1F;color:#0E0E0E}
+#services .card.hl.dk .hl-steps li{background:#1c1c1c;color:#F2EFE8!important}
+#services .card.hl.dk .btn:not(.ghost){background:#FF4F1F;color:#0E0E0E;border-color:#FF4F1F}
+#services .card.hl.dk .btn.ghost{color:#F2EFE8;border-color:#F2EFE8}
+#services .card.hl.dk:hover{border-color:#FF4F1F!important}
+#services .card.hl:not(.dk) ul.hl-steps li{background:#0E0E0E}
+#services .card.hl .hl-steps li::before{content:none}
+#services .grid{grid-auto-flow:dense}
+#services .card.svc:last-child:not(.hl){grid-column:span 2}
+@media (min-width:901px){#services .card.svc:last-child:not(.hl) .feat{grid-template-columns:1fr}}
+@media (max-width:900px){#services .card.svc:last-child:not(.hl){grid-column:auto}}
