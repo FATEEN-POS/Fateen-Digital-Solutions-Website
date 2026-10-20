@@ -32,6 +32,6 @@ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isInter
 els.forEach(function(e){io.observe(e)})})();
 (function(){var b=document.querySelector('.burger'),s=document.querySelector('.scrim');if(!b)return;function t(o){document.body.classList.toggle('menu',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){t(!document.body.classList.contains('menu'))});s.addEventListener('click',function(){t(false)});document.addEventListener('keydown',function(e){if(e.key==='Escape')t(false)});document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){t(false)})})})();
 </script>
-<script src="/assets/js/chat-data.js" defer></script><script src="/assets/js/chat.js" defer></script><script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/chat-data.js" defer></script><script src="/assets/js/chat.js" defer></script><script src="/assets/js/site.js" defer></script><script src="/assets/js/curved-row.js" defer></script>
 </body>
 </html>
