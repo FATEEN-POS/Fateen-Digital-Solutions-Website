@@ -30,3 +30,7 @@ document.body.appendChild(s);
 var done=function(){if(s.classList.contains('done'))return;s.classList.add('done');setTimeout(function(){s.remove()},700)};
 s.addEventListener('click',done);setTimeout(done,2300);
 }catch(e){}})();
+
+(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.gb');if(!b)return;var t=b.closest('.gal').querySelector('.gtrack'),i=t.querySelector('.gi');if(!i)return;var w=i.getBoundingClientRect().width+14;t.scrollBy({left:(+b.dataset.d)*w,behavior:'smooth'})})})();
+/* conversion tracking: every WhatsApp / phone click becomes a GA4 event (no-op if GA is off) */
+(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"],a[href^="tel:"]');if(!a||typeof window.gtag!=='function')return;var m=(a.getAttribute('href').match(/text=([^&]+)/)||[])[1],src='';try{src=decodeURIComponent(m||'')}catch(x){}window.gtag('event',a.href.indexOf('tel:')===0?'phone_click':'whatsapp_click',{page:location.pathname,label:src.slice(0,80)})})})();
