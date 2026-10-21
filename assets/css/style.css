@@ -823,3 +823,39 @@ main section .wrap>p:has(>.btn:last-child){margin-top:28px}main section .wrap>.g
  .gal .gi{flex:0 0 100%!important}
 }
 @media (max-width:720px){#services .card.hl .btn.ink{background:#0E0E0E;color:#F2EFE8;border:2px solid #0E0E0E;padding:13px}#services .card.hl .hl-side{margin-top:8px}}
+
+/* ===== v9: ONE responsive system for every page (phone <=720px). Last block wins. ===== */
+:root{--g:16px;--sp:36px;--gap:12px;--tap:46px}
+@media (max-width:720px){
+ html{-webkit-text-size-adjust:100%}
+ body{font-size:16px;line-height:1.7}
+ .wrap{padding-inline:var(--g)}
+ section,.inhero,.lp,.trust,.band,.cta{padding-block:var(--sp)}
+ .lp{padding-top:28px;padding-bottom:0}.inhero{padding-top:28px;padding-bottom:var(--sp)}
+ .band{padding-block:24px}
+ h1{font-size:clamp(32px,9.6vw,42px);line-height:1.15}
+ h2{font-size:24px;line-height:1.3;margin-bottom:10px}
+ h3{font-size:17px;line-height:1.4}
+ .lead,.lp-lead,.hero p{font-size:15.5px;line-height:1.75}
+ .card{padding:16px;border-radius:14px}
+ .grid,.g3{gap:var(--gap)}
+ .btn{min-height:var(--tap);padding:12px 20px;font-size:16px;display:inline-flex;align-items:center;justify-content:center}
+ .btn.sm{min-height:40px;padding:8px 16px;font-size:14.5px}
+ .cta-row,.hl-btns,.fa{display:grid;gap:10px;width:100%}
+ .cta-row .btn,.hl-btns .btn{width:100%}
+ .chat-fab{min-height:44px}
+ /* readable minimums */
+ small,.tl2,.gnote,figcaption span,.hl-tag,.badge,.tag,.chip,.chip2,.pill{font-size:13px}
+ /* touch links in lists */
+ .sitemap a,ul.grid a,footer a{display:inline-block;padding-block:8px}
+ img{max-width:100%;height:auto}
+ figure{margin-inline:0}
+ .gal{margin-top:28px}.ghead{margin-bottom:12px}
+ .gb{width:46px;height:46px}
+ .faq summary{padding-block:14px;min-height:var(--tap)}
+ details.faq{margin-bottom:0}
+ form input,form select,form textarea{font-size:16px;min-height:var(--tap)}
+}
+@media (max-width:360px){h1{font-size:30px}h2{font-size:22px}.wrap{padding-inline:14px}}
+@media (max-width:720px){.lp .cta-row{display:grid!important;grid-template-columns:1fr;width:100%}.lp .cta-row .btn,.lp .cta-row .btn.big{width:100%;justify-content:center}.inhero .cta-row,.inhero .hero>.btn{width:100%}}
+@media (max-width:720px){.hero .btn+.btn{margin-inline-start:0;margin-top:10px}.inhero .hero .btn{width:100%}}
