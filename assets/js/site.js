@@ -7,8 +7,8 @@ els.forEach(function(e){io.observe(e)})})();
 
 (function(){document.querySelectorAll('.yt').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title=a.getAttribute('aria-label');a.innerHTML='';a.appendChild(f)})})})();
 
-(function(){var b=document.getElementById('annc');if(!b)return;try{if(sessionStorage.getItem('annc-expo')==='1'){b.hidden=true;return}}catch(e){}
-b.querySelector('.ax').addEventListener('click',function(){b.hidden=true;try{sessionStorage.setItem('annc-expo','1')}catch(e){}})})();
+(function(){var b=document.getElementById('annc');if(!b)return;try{if(sessionStorage.getItem('annc')==='1'){b.hidden=true;return}}catch(e){}
+b.querySelector('.ax').addEventListener('click',function(){b.hidden=true;try{sessionStorage.setItem('annc','1')}catch(e){}})})();
 
 (function(){var d=document.getElementById('demo');if(!d)return;var n=d.querySelector('.net'),c=d.querySelector('.cnt'),b=d.querySelector('.dbtn'),v=48,off=false;
 b.addEventListener('click',function(){off=!off;d.classList.toggle('cut',off);n.classList.toggle('off',off);n.classList.toggle('on',!off);n.textContent=off?d.dataset.off:d.dataset.on;b.textContent=off?d.dataset.b2:d.dataset.b1});
@@ -34,3 +34,17 @@ s.addEventListener('click',done);setTimeout(done,2300);
 (function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.gb');if(!b)return;var t=b.closest('.gal').querySelector('.gtrack'),i=t.querySelector('.gi');if(!i)return;var w=i.getBoundingClientRect().width+14;t.scrollBy({left:(+b.dataset.d)*w,behavior:'smooth'})})})();
 /* conversion tracking: every WhatsApp / phone click becomes a GA4 event (no-op if GA is off) */
 (function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"],a[href^="tel:"]');if(!a||typeof window.gtag!=='function')return;var m=(a.getAttribute('href').match(/text=([^&]+)/)||[])[1],src='';try{src=decodeURIComponent(m||'')}catch(x){}window.gtag('event',a.href.indexOf('tel:')===0?'phone_click':'whatsapp_click',{page:location.pathname,label:src.slice(0,80)})})})();
+/* navbar: scroll border, desktop dropdowns (hover + click + keyboard), Escape, outside click */
+(function(){var h=document.querySelector('header');if(!h)return;function sc(){h.classList.toggle('sc',window.scrollY>10)}sc();window.addEventListener('scroll',sc,{passive:true});
+var items=[].slice.call(h.querySelectorAll('.nm-item')),mq=window.matchMedia('(min-width:901px)'),t;
+function closeAll(except){items.forEach(function(i){if(i!==except){i.classList.remove('open');i.querySelector('.nm-t').setAttribute('aria-expanded','false')}})}
+function open(i){closeAll(i);i.classList.add('open');i.querySelector('.nm-t').setAttribute('aria-expanded','true')}
+items.forEach(function(i){var b=i.querySelector('.nm-t');
+b.addEventListener('click',function(){if(!mq.matches)return;if(matchMedia('(hover:hover)').matches){open(i);return}i.classList.contains('open')?closeAll():open(i)});
+i.addEventListener('mouseenter',function(){if(mq.matches&&matchMedia('(hover:hover)').matches){clearTimeout(t);open(i)}});
+i.addEventListener('mouseleave',function(){if(mq.matches&&matchMedia('(hover:hover)').matches){t=setTimeout(closeAll,150)}});
+i.addEventListener('focusout',function(e){if(!i.contains(e.relatedTarget))i.classList.remove('open')})});
+document.addEventListener('click',function(e){if(!h.contains(e.target))closeAll()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();document.body.classList.remove('menu')}});
+h.addEventListener('click',function(e){if(e.target.closest('.nm-p a, .nm-l, .nm-cta a')){closeAll();document.body.classList.remove('menu');var b=h.querySelector('.burger');if(b)b.setAttribute('aria-expanded','false')}});
+})();
