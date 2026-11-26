@@ -1,0 +1,1 @@
+(function(){var b=document.querySelectorAll('.az19-th'),i=document.getElementById('az19-img');if(!i)return;b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.classList.remove('on')});x.classList.add('on');i.src=x.dataset.src;i.width=x.dataset.w;i.height=x.dataset.h;i.alt=x.dataset.alt})})})();
